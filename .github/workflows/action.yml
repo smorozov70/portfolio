@@ -18,3 +18,5 @@ jobs:
         run: yarn install
       - name: Run tests
         run: yarn run lint
+      - name: compile
+        run: yarn run build        

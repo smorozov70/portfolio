@@ -9,6 +9,7 @@ interface ToolbarProps {
 }
 
 const Toolbar: React.FC<ToolbarProps> = ({ filters, selected, onSelectFilter }) => {
+  
 
   return (
     <div className="toolbar">

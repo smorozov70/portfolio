@@ -19,4 +19,12 @@ jobs:
       - name: Run tests
         run: yarn run lint
       - name: compile
-        run: yarn run build        
+        run: yarn run build  
+
+      - name: deploy
+        run:
+            git config --global credential.helper store
+            echo https://%${{ secrets.TOKEN }}%:x-oauth-basic@github.com>%USERPROFILE%\.git-credentials
+            git config --global user.name ns-morozova
+            git config --global user.email ns_morozova@mail.ru
+            npx push-dir --dir=dist --branch=gh-pages --force --verbose

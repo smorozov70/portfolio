@@ -21,10 +21,9 @@ jobs:
       - name: compile
         run: yarn run build  
 
-      - name: deploy
-        run: |
-          git config --global credential.helper store
-          echo https://%${{ secrets.TOKEN }}%:x-oauth-basic@github.com>%USERPROFILE%\.git-credentials
-          git config --global user.name ns-morozova
-          git config --global user.email ns_morozova@mail.ru
-          yarn run deploy
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: ./dist        
